@@ -11,7 +11,6 @@
         if ( a.open_issues_count < b.open_issues_count ) return 1;
         return 0;
     } );
-    console.log( this.repos )
   </script>
 
   <style>
