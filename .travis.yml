@@ -1,6 +1,19 @@
 language: node_js
 node_js:
-- 'node'
+- '7.6'
+
+before_script:
+- npm install
+- npm run build
 
 script:
-  - npm test
+- npm test
+
+after_success: bash ./bin/deploy.sh
+
+env:
+  global:
+  - GIT_USER: Travis CI
+  - GIT_EMAIL: miya0001@users.noreply.github.com
+  - GH_REF: github.com/miya0001/dashboard
+  - secure: "JQvfUUipNrkuJEt02h1SqkReOBfOpLGgHW3tGK3cuN/yJ9CC/ZieG4Zomm6yvWScrzi57xTFoHCiPpsCG+EuicIOXFgYyDypKZ71K/q9fTo7Hp3x9jBjX/ZsNgvlJjHFPO+aCMK0gSZAX+a47YnSPPVzfd5FqBoN4jqCvLYNVcxriaucIl8sq74izZ7N6YtsNZDjZdJxPPQtCHFTp0fNpnxm9NMCe6h68x0xUOphgKZdUA/JhKX/kux9137WiXKnlIepsmKx1BpMOc31bbzkR0fty27u/uHlgw0zMd0ccSP0f29Q94H5bw1XdgMOKwGcV5pSkxm5XA7xLv9OghD1Sxak3qAfHUBSFqmdjl1i21cr8f/e+Mqay2KxUpSU4LotBFMGZJXZHNxYeIwmYOKA+Z7laGvgkjgzvSFroCCI4ku1OweBfrL6pos2fS0cA55weU6tru8nSuOkwuucxN60aZ8cZk28KoqG8PbHJ/xgClxW4D0KKDUjo6DhG5qMZ60YA/W/9BGWFTaLX5tujL+/Pa8o1vOqAOsibMXTrdTigyC5SlJ8cTw6JAQ8Ln919IOyWkyd2NQgxPcnd8H7NyTM2mTAVV/WV4Xe60N7ql/SsQ4w0diDXRUdXpghcyTZabCsVui2D3Snq2+Hkd+evu6QsKiyFiZ5z/JDCtrSjUyehEQ="
