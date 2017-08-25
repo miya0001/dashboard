@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/miya0001/dashboard.svg?branch=master)](https://travis-ci.org/miya0001/dashboard)
 
+https://miya0001.github.io/dashboard/
 
 ## Getting started
 
