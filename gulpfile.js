@@ -5,19 +5,49 @@ const buffer     = require('vinyl-buffer');
 const uglify     = require('gulp-uglify');
 const babel      = require( 'gulp-babel' )
 const riotify    = require( 'riotify' )
+const sass        = require( 'gulp-sass' )
 
-gulp.task('build', function (cb) {
-  browserify({
-    entries: ['src/main.js']
-  })
+gulp.task( 'build', (cb) => {
+  browserify( {
+    entries: [ 'src/main.js' ]
+  } )
   .transform( riotify )
   .bundle()
-  .pipe(source('main.min.js'))
-  .pipe(buffer())
+  .pipe( source( 'main.min.js' ) )
+  .pipe( buffer() )
   .pipe( babel( {
     presets: [ 'es2015' ]
   } ) )
   .pipe(uglify())
-  .pipe(gulp.dest('js'))
-  .on('end', cb);
+  .pipe( gulp.dest( 'js' ) )
+  .on('end', cb );
 })
+
+gulp.task( 'css', () => {
+  gulp.src( [
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+    'node_modules/octicons/build/octicons.css',    'node_modules/octicons/build/sprite.octicons.svg'
+  ] )
+		.pipe( gulp.dest( 'css' ) )
+} )
+
+gulp.task( 'fonts', () => {
+  gulp.src( [
+    'node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.*'
+  ] )
+	.pipe( gulp.dest( 'fonts' ) )
+} )
+
+gulp.task( 'sass', () => {
+  return gulp.src( './src/style.scss' )
+    .pipe( sass().on( 'error', sass.logError ) )
+    .pipe( gulp.dest( './css' ) )
+} )
+
+gulp.task( 'default', [
+  'build',
+  'css',
+  'sass',
+  'fonts'
+] )
