@@ -17,7 +17,6 @@
 
   <script>
     this.issues = opts.issues
-    console.log( this.issues )
   </script>
 
   <style>
