@@ -5,6 +5,8 @@ require( 'babel-polyfill' )
 global.$ = global.jQuery = require( 'jquery' )
 global.bootstrap = require( 'bootstrap' )
 global.riot = require( 'riot' )
+global.moment = require( 'moment' )
+global.octicons = require("octicons")
 
 const api = 'https://api.github.com'
 const org = 'wp-cli'
@@ -16,11 +18,11 @@ $.ajax( {
   url: api + '/orgs/' + org + '/repos',
   data: { per_page: 100 },
   dataType: 'json'
-} ).done( function( data ) {
+} ).done( ( data ) => {
   riot.mount( repos_tag, { repos: data } )
 } );
 
-$( window ).on( 'hashchange', function() {
+$( window ).on( 'hashchange', () => {
   const repo = location.hash.slice( 1 );
   $.ajax( {
     url: api + '/repos/' + org + '/' + repo + '/issues',

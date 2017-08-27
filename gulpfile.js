@@ -26,8 +26,7 @@ gulp.task( 'build', (cb) => {
 gulp.task( 'css', () => {
   gulp.src( [
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
-    'node_modules/octicons/build/octicons.css',    'node_modules/octicons/build/sprite.octicons.svg'
+    'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
   ] )
 		.pipe( gulp.dest( 'css' ) )
 } )
