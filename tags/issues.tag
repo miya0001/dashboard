@@ -8,7 +8,7 @@
           <a href="{ this.html_url }">{ this.title }</a></h2>
         <div class="created-at">{ moment( this.created_at ).fromNow() }</div>
         <ul class="labels">
-          <li each={ this.labels } class="label"><a href="{ this.url }" style="background-color: #{ this.color };">{ this.name }</a></li>
+          <li each={ this.labels } class="label"><a href="https://github.com/wp-cli/wp-cli/labels/{ encodeURI( this.name)  }" style="background-color: #{ this.color };">{ this.name }</a></li>
         </ul>
         <div class="clearfix"></div>
       </div>
