@@ -1,4 +1,4 @@
-# Dashboard for GitHub organization
+# Issue Dashboard for WP-CLI
 
 [![Build Status](https://travis-ci.org/miya0001/dashboard.svg?branch=master)](https://travis-ci.org/miya0001/dashboard)
 
